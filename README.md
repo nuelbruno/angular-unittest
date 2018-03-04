@@ -19,7 +19,7 @@ shift + alt + down arrow => copy set of code
 ## Test file format : spec.ts
 
 cmd => ng test
-ugury
+
 describe() // suite (funcation to call)
 
 it()  //spec ( to do test)
@@ -27,31 +27,34 @@ it()  //spec ( to do test)
 ## Sample code test
 
 describe('compute', () => {
-    
+
      it('test name', () => {
 
      });
-});
+   });
 
 ## Concept of Unit testing
 
 // Arrange
+
 let classobj = new classobj()
 // Act
+
 classobj.membername();
 // Assert
+
 expect(classobj.membervariable).toBe()
 
- *** set up & tear down ****
+## *** set up & tear down ****
 
 While initalizing object in testing mode, object has to be recreated every time for that we need to use
 
-// setup
+** setup
 beforeEach(() => { object initliazation, obj = new obj() });
 
 similarly to clean up
 
-// tear down
+** tear down
 afterEach(() => {});
 
 similarly 
