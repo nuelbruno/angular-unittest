@@ -38,10 +38,13 @@ describe('compute', () => {
 // Arrange
 
 let classobj = new classobj()
+
 // Act
 
 classobj.membername();
+
 // Assert
+
 
 expect(classobj.membervariable).toBe()
 
@@ -50,16 +53,20 @@ expect(classobj.membervariable).toBe()
 While initalizing object in testing mode, object has to be recreated every time for that we need to use
 
 ** setup
-beforeEach(() => { object initliazation, obj = new obj() });
+
+beforeEach(() =>
+{ object initliazation, obj = new obj() });
 
 similarly to clean up
 
 ** tear down
+
 afterEach(() => {});
+
 
 similarly 
 
-beforeAll () executed once before all test & afterAll()
+beforeAll () executed once before all test & afterAll() after all test
 
 ## spies &  Interaction  testing
 
