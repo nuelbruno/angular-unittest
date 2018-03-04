@@ -1,27 +1,93 @@
-# Unitest
+# Debug in chrome debugger tool 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.0.
+Debug chrome => inspect -> webpack -> . -> src -> app
 
-## Development server
+# other methods 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Augury
 
-## Code scaffolding
+add "debugger" in the code and run and test in browser
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+user pipe Async to out put data in browser & var | JSON
 
-## Build
+Set break point in Vcode and add the config.json as below
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+To debug RxJs, use "do" operator within RX
 
-## Running unit tests
+shift + alt + down arrow => copy set of code
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Test file format : spec.ts
 
-## Running end-to-end tests
+cmd => ng test
+ugury
+describe() // suite (funcation to call)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+it()  //spec ( to do test)
 
-## Further help
+## Sample code test
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+describe('compute', () => {
+    
+     it('test name', () => {
+
+     });
+});
+
+## Concept of Unit testing
+
+// Arrange
+let classobj = new classobj()
+// Act
+classobj.membername();
+// Assert
+expect(classobj.membervariable).toBe()
+
+ *** set up & tear down ****
+
+While initalizing object in testing mode, object has to be recreated every time for that we need to use
+
+// setup
+beforeEach(() => { object initliazation, obj = new obj() });
+
+similarly to clean up
+
+// tear down
+afterEach(() => {});
+
+similarly 
+
+beforeAll () executed once before all test & afterAll()
+
+## spies &  Interaction  testing
+
+spyon() // to spy on method in a class
+
+
+  beforeEach(() => {
+    service = new TodoService(null);
+    component = new TodosComponent(service);
+  });
+
+ spyOn(service, 'getTodos').and.callFake(() => {
+       return Observable.from([ [1, 2, 3] ]);
+    });
+
+  component.ngOnInit();
+
+ ## Interaction testing
+
+add() { 
+    var newTodo = { title: '... ' };
+    this.service.add(newTodo).subscribe(
+      t => this.todos.push(t),
+      err => this.message = err);
+  }
+
+## Code Coverage
+
+ng test --code-coverage
+
+## Disable Unit testing 
+To disable a test put x
+
+xit('te be tested', () => {} )
